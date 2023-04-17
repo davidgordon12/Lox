@@ -7,9 +7,8 @@ fn main() {
 
         stdin.lock().read_line(&mut line).unwrap();
 
-        if line.is_empty() { return; } 
-
         if line.contains("1 + 2 + 3") { println!("7"); }
+
+        else { println!("Invalid input provided: {}", line); } 
     }
 }
-
