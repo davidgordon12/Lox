@@ -1,14 +1,28 @@
-use std::io::{self, BufRead};
+use std::fs;
+use std::error::Error;
+
+enum TokenKind {
+    number,
+    operator,
+    whitespace,
+}
+
+struct Token {
+    kind: TokenKind,
+    position: i32,
+    text: String,
+}
 
 fn main() {
-    loop {
-        let mut line = String::new();
-        let stdin = io::stdin();
+    let lox_file = fs::read_to_string("test.lx").expect("Invalid file provided"); 
 
-        stdin.lock().read_line(&mut line).unwrap();
+    parse_file(lox_file);
+}
 
-        if line.contains("1 + 2 + 3") { println!("7"); }
-
-        else { println!("Invalid input provided: {}", line); } 
+fn parse_file(file: String) {
+    for (i, c) in file.chars().enumerate() {
+        if c == 'l' {
+            println!("l");
+        }
     }
 }
