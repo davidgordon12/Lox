@@ -1,3 +1,0 @@
-# Lox
-
-A compiler
