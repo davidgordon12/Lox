@@ -1,6 +1,6 @@
-# Lox
+<p align="center"> # Lox </p>
 
-Lox is an expiremental interpreted language implemented in GO.
+<p align="center"> Lox is an expiremental interpreted language implemented in GO. </p>
 
 ## Examples
 wip
