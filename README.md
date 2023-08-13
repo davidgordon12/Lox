@@ -1,4 +1,4 @@
-<p align="center"> # Lox </p>
+<h1 align="center"> Lox </h1>
 
 <p align="center"> Lox is an expiremental interpreted language implemented in GO. </p>
 
