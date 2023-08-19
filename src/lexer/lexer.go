@@ -20,7 +20,7 @@ func New(input string) *Lexer {
 	return lexer
 }
 
-func (lexer *Lexer) ReadChar() {
+func ReadChar(lexer *Lexer) {
 	if lexer.readPosition >= len(lexer.input) {
 		lexer.ch = 0
 	} else {
@@ -29,4 +29,7 @@ func (lexer *Lexer) ReadChar() {
 
 	lexer.position = lexer.readPosition
 	lexer.readPosition += 1
+}
+
+func NextToken(lexer *Lexer) {
 }
