@@ -1,30 +1,32 @@
 package token
 
-// Token typedef for readability. Just a string under the hood
 type TokenType string
 
-// Token definition
-type Token struct {
-	Type    TokenType
-	Literal string
-}
-
-// Possible TokenTypes defined as constants
 const (
-	ILLEGAL = "ILLEGAL" // Illegal token type
-	EOF     = "EOF"     // End of File
+	ILLEGAL = "ILLEGAL"
+	EOF     = "EOF"
 
-	// Identifiers + primitives
-	IDENT = "IDENT" // x, y, my_variable
-	INT   = "INT"   // 0, 1, 5, 20
+	// Identifiers + literals
+	IDENT = "IDENT" // add, foobar, x, y, ...
+	INT   = "INT"   // 1343456
 
 	// Operators
-	ASSIGN = "="
-	PLUS   = "+"
+	ASSIGN   = "="
+	PLUS     = "+"
+	MINUS    = "-"
+	BANG     = "!"
+	ASTERISK = "*"
+	SLASH    = "/"
+
+	LT = "<"
+	GT = ">"
+
+	EQ     = "=="
+	NOT_EQ = "!="
 
 	// Delimiters
 	COMMA     = ","
-	SEMICOLON = ":"
+	SEMICOLON = ";"
 
 	LPAREN = "("
 	RPAREN = ")"
@@ -34,11 +36,26 @@ const (
 	// Keywords
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
+	TRUE     = "TRUE"
+	FALSE    = "FALSE"
+	IF       = "IF"
+	ELSE     = "ELSE"
+	RETURN   = "RETURN"
 )
 
+type Token struct {
+	Type    TokenType
+	Literal string
+}
+
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 func LookupIdent(ident string) TokenType {
