@@ -5,33 +5,45 @@ type TokenType string
 
 // Token definition
 type Token struct {
-	Type TokenType
+	Type    TokenType
 	Literal string
 }
 
 // Possible TokenTypes defined as constants
 const (
-	ILLEGAL			= "ILLEGAL" // Illegal token type
-	EOF 				= "EOF" 	  // End of File
+	ILLEGAL = "ILLEGAL" // Illegal token type
+	EOF     = "EOF"     // End of File
 
 	// Identifiers + primitives
-	IDENT 			= "IDENT" // x, y, my_variable
-	INT					=	"INT"		// 0, 1, 5, 20
+	IDENT = "IDENT" // x, y, my_variable
+	INT   = "INT"   // 0, 1, 5, 20
 
 	// Operators
-	ASSIGN 			= "="
-	PLUS 	 		  = "+"
+	ASSIGN = "="
+	PLUS   = "+"
 
 	// Delimiters
-	COMMA 			= ","
-	SEMICOLON 	= ":"
+	COMMA     = ","
+	SEMICOLON = ":"
 
-	LPAREN 			= "("
-	RPAREN 			= ")"
-	LBRACE 			= "{"
-	RBRACE 			= "}"
+	LPAREN = "("
+	RPAREN = ")"
+	LBRACE = "{"
+	RBRACE = "}"
 
 	// Keywords
-	FUNCTION 		= "FUNCTION"
-	LET 				= "LET"
+	FUNCTION = "FUNCTION"
+	LET      = "LET"
 )
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIdent(ident string) TokenType {
+	if tkn, ok := keywords[ident]; ok {
+		return tkn
+	}
+	return IDENT
+}
