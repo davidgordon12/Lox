@@ -18,6 +18,9 @@ const (
 	ASTERISK = "*"
 	SLASH    = "/"
 
+	IS  = "is"
+	NOT = "not"
+
 	LT = "<"
 	GT = ">"
 
